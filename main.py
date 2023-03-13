@@ -21,7 +21,7 @@ print("trying to click")
 gmail = driver.find_element(By.XPATH, '//*[@id="s-1211347640"]/main/div/div/div[1]/div/div/div[3]/span/div[2]/button')
 gmail.click()
 
-time.sleep(15)
+time.sleep(5)
 
 for handle in driver.window_handles:
     if handle != main_page:
@@ -31,15 +31,39 @@ for handle in driver.window_handles:
 time.sleep(5)
 time.sleep(5)
 email_input = driver.find_element(By.NAME, "email")
-email_input.send_keys()
+email_input.send_keys("")
 
 password_input = driver.find_element(By.NAME, "pass")
-password_input.send_keys()
+password_input.send_keys("")
 time.sleep(2)
 password_input.send_keys(Keys.ENTER)
 
-time.sleep(60)
+time.sleep(20)
 
+driver.switch_to.window(main_page)
+time.sleep(5)
+
+allow = driver.find_element(By.XPATH, '//*[@id="s-1211347640"]/main/div/div/div/div[3]/button[1]')
+allow.click()
+
+time.sleep(3)
+
+enable = driver.find_element(By.XPATH, '//*[@id="s-1211347640"]/main/div/div/div/div[3]/button[1]')
+enable.click()
+
+time.sleep(5)
+
+
+accept = driver.find_element(By.XPATH,'//*[@id="s-1432688076"]/div/div[2]/div/div/div[1]/div[1]/button')
+accept.click()
+
+
+while True:
+
+    click = driver.find_element(By.XPATH,'//*[@id="s-1432688076"]/div/div[1]/div/div/main/div/div/div[1]/div/div[3]/div/div[2]/button')
+    click.click()
+
+    time.sleep(3)
 
 
 driver.quit()
